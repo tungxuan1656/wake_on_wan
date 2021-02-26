@@ -7,23 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9716425725E8FC85006C2685 /* tutorial.html in Resources */ = {isa = PBXBuildFile; fileRef = 9716425625E8FC85006C2685 /* tutorial.html */; };
+		97AC6ED525E7524600FEC23E /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC6ED425E7524600FEC23E /* View+Extensions.swift */; };
+		97AC6ED925E7525D00FEC23E /* DataType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC6ED725E7525D00FEC23E /* DataType+Extensions.swift */; };
+		97AC6EDA25E7525D00FEC23E /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC6ED825E7525D00FEC23E /* ViewController+Extensions.swift */; };
+		97AC6EDD25E7553800FEC23E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC6EDC25E7553800FEC23E /* ViewController.swift */; };
+		97AC6EE125E7800400FEC23E /* CellPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC6EDF25E7800400FEC23E /* CellPC.swift */; };
+		97AC6EE225E7800400FEC23E /* CellPC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97AC6EE025E7800400FEC23E /* CellPC.xib */; };
+		97AC6EE625E7860E00FEC23E /* PC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC6EE525E7860E00FEC23E /* PC.swift */; };
+		97AC6EEA25E79DA000FEC23E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC6EE925E79DA000FEC23E /* Config.swift */; };
 		97CE991E25E74D9F00B9353A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CE991D25E74D9F00B9353A /* AppDelegate.swift */; };
 		97CE992025E74D9F00B9353A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CE991F25E74D9F00B9353A /* SceneDelegate.swift */; };
-		97CE992225E74D9F00B9353A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CE992125E74D9F00B9353A /* ViewController.swift */; };
 		97CE992525E74D9F00B9353A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97CE992325E74D9F00B9353A /* Main.storyboard */; };
 		97CE992725E74DA000B9353A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97CE992625E74DA000B9353A /* Assets.xcassets */; };
 		97CE992A25E74DA000B9353A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97CE992825E74DA000B9353A /* LaunchScreen.storyboard */; };
+		97CE993B25E7506600B9353A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CE993925E7506600B9353A /* HomeViewController.swift */; };
+		97CE993C25E7506600B9353A /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97CE993A25E7506600B9353A /* HomeViewController.xib */; };
+		97CE994125E750E500B9353A /* RegisterPCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CE993F25E750E500B9353A /* RegisterPCViewController.swift */; };
+		97CE994225E750E500B9353A /* RegisterPCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97CE994025E750E500B9353A /* RegisterPCViewController.xib */; };
+		97CE994625E750F700B9353A /* ListPCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CE994425E750F700B9353A /* ListPCViewController.swift */; };
+		97CE994725E750F700B9353A /* ListPCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97CE994525E750F700B9353A /* ListPCViewController.xib */; };
+		97CE994B25E7511B00B9353A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CE994925E7511B00B9353A /* AboutViewController.swift */; };
+		97CE994C25E7511B00B9353A /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97CE994A25E7511B00B9353A /* AboutViewController.xib */; };
+		97CE995025E7513200B9353A /* TutorialWOWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CE994E25E7513200B9353A /* TutorialWOWViewController.swift */; };
+		97CE995125E7513200B9353A /* TutorialWOWViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97CE994F25E7513200B9353A /* TutorialWOWViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9716425625E8FC85006C2685 /* tutorial.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tutorial.html; sourceTree = SOURCE_ROOT; };
+		97AC6ED425E7524600FEC23E /* View+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		97AC6ED725E7525D00FEC23E /* DataType+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataType+Extensions.swift"; sourceTree = "<group>"; };
+		97AC6ED825E7525D00FEC23E /* ViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
+		97AC6EDC25E7553800FEC23E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		97AC6EDF25E7800400FEC23E /* CellPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellPC.swift; sourceTree = "<group>"; };
+		97AC6EE025E7800400FEC23E /* CellPC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellPC.xib; sourceTree = "<group>"; };
+		97AC6EE525E7860E00FEC23E /* PC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PC.swift; sourceTree = "<group>"; };
+		97AC6EE925E79DA000FEC23E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		97CE991A25E74D9F00B9353A /* wow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97CE991D25E74D9F00B9353A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97CE991F25E74D9F00B9353A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		97CE992125E74D9F00B9353A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		97CE992425E74D9F00B9353A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97CE992625E74DA000B9353A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97CE992925E74DA000B9353A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97CE992B25E74DA000B9353A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97CE993925E7506600B9353A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		97CE993A25E7506600B9353A /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		97CE993F25E750E500B9353A /* RegisterPCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPCViewController.swift; sourceTree = "<group>"; };
+		97CE994025E750E500B9353A /* RegisterPCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterPCViewController.xib; sourceTree = "<group>"; };
+		97CE994425E750F700B9353A /* ListPCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPCViewController.swift; sourceTree = "<group>"; };
+		97CE994525E750F700B9353A /* ListPCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListPCViewController.xib; sourceTree = "<group>"; };
+		97CE994925E7511B00B9353A /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		97CE994A25E7511B00B9353A /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		97CE994E25E7513200B9353A /* TutorialWOWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialWOWViewController.swift; sourceTree = "<group>"; };
+		97CE994F25E7513200B9353A /* TutorialWOWViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialWOWViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		97AC6EE425E7860000FEC23E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				97AC6EE525E7860E00FEC23E /* PC.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		97CE991125E74D9F00B9353A = {
 			isa = PBXGroup;
 			children = (
@@ -58,13 +102,111 @@
 			children = (
 				97CE991D25E74D9F00B9353A /* AppDelegate.swift */,
 				97CE991F25E74D9F00B9353A /* SceneDelegate.swift */,
-				97CE992125E74D9F00B9353A /* ViewController.swift */,
-				97CE992325E74D9F00B9353A /* Main.storyboard */,
 				97CE992625E74DA000B9353A /* Assets.xcassets */,
-				97CE992825E74DA000B9353A /* LaunchScreen.storyboard */,
 				97CE992B25E74DA000B9353A /* Info.plist */,
+				97AC6EE425E7860000FEC23E /* Model */,
+				97CE993525E74ED900B9353A /* View */,
+				97CE993725E7503700B9353A /* General */,
 			);
 			path = wow;
+			sourceTree = "<group>";
+		};
+		97CE993425E74ECD00B9353A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				9716425625E8FC85006C2685 /* tutorial.html */,
+				97CE992325E74D9F00B9353A /* Main.storyboard */,
+				97CE992825E74DA000B9353A /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		97CE993525E74ED900B9353A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				97CE995425E7515900B9353A /* Home */,
+				97CE995525E7516200B9353A /* Register PC */,
+				97CE995725E7516C00B9353A /* List PC */,
+				97CE995825E7517700B9353A /* About */,
+				97CE995A25E7518200B9353A /* Tutorial WOW */,
+				97AC6EDC25E7553800FEC23E /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		97CE993625E74EDE00B9353A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		97CE993725E7503700B9353A /* General */ = {
+			isa = PBXGroup;
+			children = (
+				97AC6EE925E79DA000FEC23E /* Config.swift */,
+				97CE993825E7504300B9353A /* Extensions */,
+				97CE993625E74EDE00B9353A /* Controller */,
+				97CE993425E74ECD00B9353A /* Resource */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		97CE993825E7504300B9353A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				97AC6ED425E7524600FEC23E /* View+Extensions.swift */,
+				97AC6ED725E7525D00FEC23E /* DataType+Extensions.swift */,
+				97AC6ED825E7525D00FEC23E /* ViewController+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		97CE995425E7515900B9353A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				97CE993925E7506600B9353A /* HomeViewController.swift */,
+				97CE993A25E7506600B9353A /* HomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		97CE995525E7516200B9353A /* Register PC */ = {
+			isa = PBXGroup;
+			children = (
+				97CE993F25E750E500B9353A /* RegisterPCViewController.swift */,
+				97CE994025E750E500B9353A /* RegisterPCViewController.xib */,
+			);
+			path = "Register PC";
+			sourceTree = "<group>";
+		};
+		97CE995725E7516C00B9353A /* List PC */ = {
+			isa = PBXGroup;
+			children = (
+				97CE994425E750F700B9353A /* ListPCViewController.swift */,
+				97CE994525E750F700B9353A /* ListPCViewController.xib */,
+				97AC6EDF25E7800400FEC23E /* CellPC.swift */,
+				97AC6EE025E7800400FEC23E /* CellPC.xib */,
+			);
+			path = "List PC";
+			sourceTree = "<group>";
+		};
+		97CE995825E7517700B9353A /* About */ = {
+			isa = PBXGroup;
+			children = (
+				97CE994925E7511B00B9353A /* AboutViewController.swift */,
+				97CE994A25E7511B00B9353A /* AboutViewController.xib */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		97CE995A25E7518200B9353A /* Tutorial WOW */ = {
+			isa = PBXGroup;
+			children = (
+				97CE994E25E7513200B9353A /* TutorialWOWViewController.swift */,
+				97CE994F25E7513200B9353A /* TutorialWOWViewController.xib */,
+			);
+			path = "Tutorial WOW";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,8 +267,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				97CE992A25E74DA000B9353A /* LaunchScreen.storyboard in Resources */,
+				97CE994C25E7511B00B9353A /* AboutViewController.xib in Resources */,
 				97CE992725E74DA000B9353A /* Assets.xcassets in Resources */,
 				97CE992525E74D9F00B9353A /* Main.storyboard in Resources */,
+				97CE994225E750E500B9353A /* RegisterPCViewController.xib in Resources */,
+				97CE993C25E7506600B9353A /* HomeViewController.xib in Resources */,
+				9716425725E8FC85006C2685 /* tutorial.html in Resources */,
+				97CE995125E7513200B9353A /* TutorialWOWViewController.xib in Resources */,
+				97CE994725E750F700B9353A /* ListPCViewController.xib in Resources */,
+				97AC6EE225E7800400FEC23E /* CellPC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,9 +286,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97CE992225E74D9F00B9353A /* ViewController.swift in Sources */,
 				97CE991E25E74D9F00B9353A /* AppDelegate.swift in Sources */,
+				97CE995025E7513200B9353A /* TutorialWOWViewController.swift in Sources */,
+				97CE994125E750E500B9353A /* RegisterPCViewController.swift in Sources */,
+				97AC6EEA25E79DA000FEC23E /* Config.swift in Sources */,
+				97CE994B25E7511B00B9353A /* AboutViewController.swift in Sources */,
+				97AC6EDD25E7553800FEC23E /* ViewController.swift in Sources */,
 				97CE992025E74D9F00B9353A /* SceneDelegate.swift in Sources */,
+				97CE993B25E7506600B9353A /* HomeViewController.swift in Sources */,
+				97AC6EDA25E7525D00FEC23E /* ViewController+Extensions.swift in Sources */,
+				97AC6ED525E7524600FEC23E /* View+Extensions.swift in Sources */,
+				97CE994625E750F700B9353A /* ListPCViewController.swift in Sources */,
+				97AC6EE125E7800400FEC23E /* CellPC.swift in Sources */,
+				97AC6EE625E7860E00FEC23E /* PC.swift in Sources */,
+				97AC6ED925E7525D00FEC23E /* DataType+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +449,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56487ZF829;
 				INFOPLIST_FILE = wow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +457,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tungxuan.wow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,6 +469,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56487ZF829;
 				INFOPLIST_FILE = wow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +477,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tungxuan.wow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

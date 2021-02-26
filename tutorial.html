@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turorial Setup Wake on Wan</title>
+</head>
+<body>
+    <h3>Setup Wake on Lan</h3>
+    <a href="https://www.howtogeek.com/70374/how-to-geek-explains-what-is-wake-on-lan-and-how-do-i-enable-it/">What is Wake on Lan and how to enable it</a>
+    <h3>Setup router to Wake on Wan</h3>
+    <ul>
+        <li>Step 1: Port forwarding / Port mapping configuration</li>
+        <ul>
+            <li>Add following forwarder: UDP, from 1007 to 9, ip 192.168.1.254</li>
+            <ul>
+                <li>192.168.1.254 this IP shouldn't belong to any device. It is a free IP address we will use for an ARP entry later</li>
+                <li>1007 is the outoing port we opened on router.</li>
+                <li>9 is the port my motherboard uses for wake on lan packages. Check manual for yours!</li>
+            </ul>
+        </ul>
+        <li>Step 2: Set ARP Table / ARP configuration</li>
+        <ul>
+            <li>We will need to add ARP entry in the router:</li>
+            <ul>
+                <li>Command: arp -i br0 -s 192.168.1.254 FF:FF:FF:FF:FF:FF</li>
+                <li>GUI: IP: 192.168.1.254 / MAC Address: FF:FF:FF:FF:FF:FF</li>
+            </ul>
+        </ul>
+    </ul>
+</body>
+</html>
