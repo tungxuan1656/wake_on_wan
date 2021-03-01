@@ -9,8 +9,26 @@ import Foundation
 
 class Global {
 	
+	static var shared = Global()
+	
 	static var selectedPC: PC? = nil
 	static var arrPCs = [PC]()
+	
+	init() {
+		NotificationCenter.default.addObserver(self, selector: #selector(updateData), name: .AddNewPC, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(updateData), name: .RemovePC, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(updateData), name: .SelectedNewPC, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(updateData), name: .EditedPC, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(updateData), name: .RemoveSelectedPC, object: nil)
+	}
+	
+	deinit {
+		NotificationCenter.default.removeObserver(self)
+	}
+	
+	@objc func updateData() {
+		Global.saveArrayPC()
+	}
 	
 	static func saveArrayPC() {
 		let a = Global.arrPCs.map { $0.toString() }

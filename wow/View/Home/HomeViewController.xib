@@ -80,15 +80,22 @@
                         </stackView>
                     </subviews>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmI-x6-hOv">
-                    <rect key="frame" x="344" y="54" width="60" height="60"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmI-x6-hOv" customClass="TXCustomButton" customModule="wow" customModuleProvider="target">
+                    <rect key="frame" x="334" y="54" width="60" height="60"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137254901963" blue="1" alpha="0.69828232020547942" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="bR9-t3-JmP"/>
                         <constraint firstAttribute="height" constant="60" id="diF-dB-55Y"/>
                     </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" image="doc.text" catalog="system">
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="default" weight="medium"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onClickButtonAbout:" destination="-1" eventType="touchUpInside" id="CzP-Lv-0g5"/>
                     </connections>
@@ -106,11 +113,16 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pHF-Bk-8tw" secondAttribute="bottom" constant="30" id="YXA-Y5-SGa"/>
                 <constraint firstItem="Dmr-20-FoE" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" multiplier="2:3" id="br8-TD-aRp"/>
                 <constraint firstItem="1Kd-42-Qn1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dk8-c9-gZN"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tmI-x6-hOv" secondAttribute="trailing" constant="10" id="iZ4-om-evp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tmI-x6-hOv" secondAttribute="trailing" constant="20" id="iZ4-om-evp"/>
             </constraints>
             <point key="canvasLocation" x="-193" y="51"/>
         </view>
     </objects>
+    <designables>
+        <designable name="tmI-x6-hOv">
+            <size key="intrinsicContentSize" width="27" height="29.5"/>
+        </designable>
+    </designables>
     <resources>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="doc.text" catalog="system" width="115" height="128"/>
