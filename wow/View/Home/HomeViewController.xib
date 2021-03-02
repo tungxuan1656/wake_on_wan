@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,6 +17,7 @@
                 <outlet property="indicator" destination="pHF-Bk-8tw" id="rud-AU-zIh"/>
                 <outlet property="labelIPAddressAndPort" destination="VR6-BN-EdA" id="Dr5-1N-ZHI"/>
                 <outlet property="labelMACAddress" destination="bNN-Ss-uqh" id="sEN-3D-Zr7"/>
+                <outlet property="labelPingLogs" destination="mcc-H3-iDS" id="Ou2-sF-gsy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1Kd-42-Qn1">
-                    <rect key="frame" x="69" y="272.5" width="276" height="351.5"/>
+                    <rect key="frame" x="69" y="242.5" width="276" height="351.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="7sV-5K-SPX">
                             <rect key="frame" x="0.0" y="0.0" width="276" height="298.5"/>
@@ -81,19 +83,19 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmI-x6-hOv" customClass="TXCustomButton" customModule="wow" customModuleProvider="target">
-                    <rect key="frame" x="334" y="54" width="60" height="60"/>
+                    <rect key="frame" x="344" y="54" width="50" height="50"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137254901963" blue="1" alpha="0.69828232020547942" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="60" id="bR9-t3-JmP"/>
-                        <constraint firstAttribute="height" constant="60" id="diF-dB-55Y"/>
+                        <constraint firstAttribute="width" constant="50" id="bR9-t3-JmP"/>
+                        <constraint firstAttribute="height" constant="50" id="diF-dB-55Y"/>
                     </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" image="doc.text" catalog="system">
-                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="default" weight="medium"/>
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="default" weight="medium"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="30"/>
+                            <real key="value" value="25"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -103,29 +105,53 @@
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="pHF-Bk-8tw">
                     <rect key="frame" x="188.5" y="795" width="37" height="37"/>
                 </activityIndicatorView>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7lq-6f-jF7">
+                    <rect key="frame" x="69" y="624" width="276" height="151"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Ping logs" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcc-H3-iDS">
+                            <rect key="frame" x="0.0" y="134" width="276" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="mcc-H3-iDS" secondAttribute="trailing" id="7uX-aH-eTs"/>
+                        <constraint firstAttribute="bottom" secondItem="mcc-H3-iDS" secondAttribute="bottom" id="aR9-7e-7zK"/>
+                        <constraint firstItem="mcc-H3-iDS" firstAttribute="leading" secondItem="7lq-6f-jF7" secondAttribute="leading" id="gyu-50-EvG"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="1Kd-42-Qn1" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="9EH-4H-WnK"/>
+                <constraint firstItem="7lq-6f-jF7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5bn-fr-Ywe"/>
+                <constraint firstItem="1Kd-42-Qn1" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-30" id="9EH-4H-WnK"/>
+                <constraint firstItem="pHF-Bk-8tw" firstAttribute="top" secondItem="7lq-6f-jF7" secondAttribute="bottom" constant="20" id="BWH-fg-U3y"/>
                 <constraint firstItem="pHF-Bk-8tw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="I9V-Ih-nIP"/>
                 <constraint firstItem="tmI-x6-hOv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="KFp-7F-KmZ"/>
+                <constraint firstItem="7lq-6f-jF7" firstAttribute="top" secondItem="1Kd-42-Qn1" secondAttribute="bottom" constant="30" id="MOP-lG-qSn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pHF-Bk-8tw" secondAttribute="bottom" constant="30" id="YXA-Y5-SGa"/>
                 <constraint firstItem="Dmr-20-FoE" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" multiplier="2:3" id="br8-TD-aRp"/>
+                <constraint firstItem="7lq-6f-jF7" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" multiplier="0.666667" id="ciW-44-hTr"/>
                 <constraint firstItem="1Kd-42-Qn1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dk8-c9-gZN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tmI-x6-hOv" secondAttribute="trailing" constant="20" id="iZ4-om-evp"/>
             </constraints>
-            <point key="canvasLocation" x="-193" y="51"/>
+            <point key="canvasLocation" x="-194.20289855072465" y="50.892857142857139"/>
         </view>
     </objects>
     <designables>
         <designable name="tmI-x6-hOv">
-            <size key="intrinsicContentSize" width="27" height="29.5"/>
+            <size key="intrinsicContentSize" width="22" height="24.5"/>
         </designable>
     </designables>
     <resources>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="doc.text" catalog="system" width="115" height="128"/>
         <image name="power" catalog="system" width="128" height="124"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

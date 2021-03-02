@@ -14,8 +14,15 @@ class HomeViewController: UIViewController {
 	@IBOutlet weak var labelMACAddress: UILabel!
 	@IBOutlet weak var labelIPAddressAndPort: UILabel!
 	@IBOutlet weak var indicator: UIActivityIndicatorView!
+	@IBOutlet weak var labelPingLogs: UILabel!
 	
 	var onSendingMagicPacket = false
+	var startTimeCheckPort = Date()
+	var counterCheckPort = 0
+	var maxSecondsTimeCheckPort: TimeInterval = 60
+	var pcIsOnline = false
+	var timerPing: Timer? = nil
+	var delayStartupPC: TimeInterval = 15
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -56,7 +63,7 @@ class HomeViewController: UIViewController {
 	func setupUI() {
 		self.buttonPC.layer.cornerRadius = 10
 		self.buttonPower.layer.cornerRadius = self.buttonPower.frame.width / 2
-		// self.setStateButtonPower(inProcessing: true)
+		self.labelPingLogs.text = ""
 		self.updateUI()
 	}
 	
@@ -86,6 +93,7 @@ class HomeViewController: UIViewController {
 	
 	// MARK: - Button Event
 	@IBAction func onClickButtonPower(_ sender: Any) {
+		self.stopCheckPortRD()
 		if self.onSendingMagicPacket { return }
 		self.onSendingMagicPacket = true
 		self.indicator.startAnimating()
@@ -95,23 +103,37 @@ class HomeViewController: UIViewController {
 			self.onSendingMagicPacket = false
 			
 			DispatchQueue.main.async {
-				self.indicator.stopAnimating()
+				// self.indicator.stopAnimating()
 				if error != nil {
 					self.showAlertDialog(title: "Failed", message: error.debugDescription)
 				}
 				else {
 					self.showAlertDialog(title: "Success", message: "Send magic packet done!")
+					if let ip = Global.selectedPC?.ipRD, ip != "" {
+						Timer.scheduledTimer(withTimeInterval: self.delayStartupPC, repeats: false) { (timer) in
+							self.pcIsOnline = false
+							self.labelPingLogs.text = ""
+							self.counterCheckPort = 0
+							self.startTimeCheckPort = Date()
+							self.checkRDPortOpenHost()
+						}
+					}
+					else {
+						self.stopCheckPortRD()
+					}
 				}
 			}
 		}
 	}
 	
 	@IBAction func onClickButtonPC(_ sender: Any) {
+		self.stopCheckPortRD()
 		let listPC = ListPCViewController()
 		self.navigationController?.pushViewController(listPC, animated: true)
 	}
 	
 	@IBAction func onClickButtonAbout(_ sender: Any) {
+		self.stopCheckPortRD()
 		let about = AboutViewController()
 		self.present(about, animated: true, completion: nil)
 	}
@@ -129,16 +151,17 @@ class HomeViewController: UIViewController {
 			return nil
 		}
 		var ip = pc.ip
+		if !ip.hasPrefix("http://") || !ip.hasPrefix("https://") {
+			ip = "http://\(ip)"
+		}
 		
-		if ip.hasPrefix("http"), let url = URL(string: ip) {
-			if let i = self.urlToIP_getHostByName(url).first {
+		if let url = URL(string: ip) {
+			if let i = PC.urlToIP_getHostByName(url).first {
 				ip = i
 			}
 		}
-		if ip.hasPrefix("http") {
-			self.showAlertDialog(title: "Failed", message: "Cannot get ip by host name!")
-		}
-		let packet = self.createMagicPacket(mac: pc.MAC)
+		
+		let packet = pc.createMagicPacket()
 		
 		print("\n MAGIC PACKET", packet)
 		
@@ -183,45 +206,46 @@ class HomeViewController: UIViewController {
 		return nil
 	}
 	
-	func createMagicPacket(mac: String) -> [CUnsignedChar] {
-		var buffer = [CUnsignedChar]()
+	func checkRDPortOpenHost() {
+		guard let pc = Global.selectedPC else { return }
+		if pc.ipRD == "" { return }
 		
-		// Create header
-		for _ in 1...6 {
-			buffer.append(0xFF)
+		DispatchQueue.main.async {
+			let text = self.labelPingLogs.text ?? ""
+			self.labelPingLogs.text = text + "\nConnect: \(pc.ipRD):\(pc.portRD) (\(self.counterCheckPort))"
 		}
 		
-		let components = mac.components(separatedBy: ":")
-		let numbers = components.map {
-			return strtoul($0, nil, 16)
-		}
-		
-		// Repeat MAC address 16 times
-		for _ in 1...16 {
-			for number in numbers {
-				buffer.append(CUnsignedChar(number))
+		DispatchQueue.global().async {
+			let isOpen = PC.isPortOpen(host: pc.ipRD, port: pc.portRD)
+			
+			DispatchQueue.main.async {
+				if isOpen {
+					self.stopCheckPortRD()
+					self.labelPingLogs.text = "PC is online"
+					return
+				}
+				
+				self.counterCheckPort += 1
+				
+				if !isOpen {
+					Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+						if Date().timeIntervalSince(self.startTimeCheckPort) < self.maxSecondsTimeCheckPort {
+							self.checkRDPortOpenHost()
+						}
+						else {
+							self.stopCheckPortRD()
+						}
+					}
+				}
 			}
 		}
-		
-		return buffer
 	}
 	
-	private func urlToIP_getHostByName(_ url: URL) -> [String] {
-		var ipList: [String] = []
-		guard let hostname = url.host else { return ipList }
-		guard let host = hostname.withCString({gethostbyname($0)}) else { return ipList }
-		guard host.pointee.h_length > 0 else { return ipList }
-
-		var index = 0
-		while host.pointee.h_addr_list[index] != nil {
-			var addr: in_addr = in_addr()
-			memcpy(&addr.s_addr, host.pointee.h_addr_list[index], Int(host.pointee.h_length))
-			guard let remoteIPAsC = inet_ntoa(addr) else { return ipList }
-			ipList.append(String.init(cString: remoteIPAsC))
-			index += 1
-		}
-
-		return ipList
+	func stopCheckPortRD() {
+		self.timerPing?.invalidate()
+		self.timerPing = nil
+		self.indicator.stopAnimating()
+		self.labelPingLogs.text = ""
 	}
 }
 

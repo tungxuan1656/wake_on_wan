@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9716425725E8FC85006C2685 /* tutorial.html in Resources */ = {isa = PBXBuildFile; fileRef = 9716425625E8FC85006C2685 /* tutorial.html */; };
+		9761888625ECAC5E001D6363 /* PlainPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9761888225ECAC5E001D6363 /* PlainPing.swift */; };
+		9761888725ECAC5E001D6363 /* SimplePingAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9761888325ECAC5E001D6363 /* SimplePingAdapter.swift */; };
+		9761888825ECAC5E001D6363 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = 9761888525ECAC5E001D6363 /* SimplePing.m */; };
 		97AC6ED525E7524600FEC23E /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC6ED425E7524600FEC23E /* View+Extensions.swift */; };
 		97AC6ED925E7525D00FEC23E /* DataType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC6ED725E7525D00FEC23E /* DataType+Extensions.swift */; };
 		97AC6EDA25E7525D00FEC23E /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC6ED825E7525D00FEC23E /* ViewController+Extensions.swift */; };
@@ -35,6 +38,11 @@
 
 /* Begin PBXFileReference section */
 		9716425625E8FC85006C2685 /* tutorial.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tutorial.html; sourceTree = SOURCE_ROOT; };
+		9761888125ECAC5D001D6363 /* wow-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "wow-Bridging-Header.h"; sourceTree = "<group>"; };
+		9761888225ECAC5E001D6363 /* PlainPing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainPing.swift; sourceTree = SOURCE_ROOT; };
+		9761888325ECAC5E001D6363 /* SimplePingAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePingAdapter.swift; sourceTree = SOURCE_ROOT; };
+		9761888425ECAC5E001D6363 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = SOURCE_ROOT; };
+		9761888525ECAC5E001D6363 /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = SOURCE_ROOT; };
 		97AC6ED425E7524600FEC23E /* View+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		97AC6ED725E7525D00FEC23E /* DataType+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataType+Extensions.swift"; sourceTree = "<group>"; };
 		97AC6ED825E7525D00FEC23E /* ViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -73,6 +81,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9761888025ECAC3A001D6363 /* Simple Ping */ = {
+			isa = PBXGroup;
+			children = (
+				9761888225ECAC5E001D6363 /* PlainPing.swift */,
+				9761888425ECAC5E001D6363 /* SimplePing.h */,
+				9761888525ECAC5E001D6363 /* SimplePing.m */,
+				9761888325ECAC5E001D6363 /* SimplePingAdapter.swift */,
+				9761888125ECAC5D001D6363 /* wow-Bridging-Header.h */,
+			);
+			path = "Simple Ping";
+			sourceTree = "<group>";
+		};
 		97AC6EE425E7860000FEC23E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +157,7 @@
 		97CE993625E74EDE00B9353A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9761888025ECAC3A001D6363 /* Simple Ping */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -240,6 +261,7 @@
 				TargetAttributes = {
 					97CE991925E74D9F00B9353A = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
 					};
 				};
 			};
@@ -296,6 +318,9 @@
 				97CE993B25E7506600B9353A /* HomeViewController.swift in Sources */,
 				97AC6EDA25E7525D00FEC23E /* ViewController+Extensions.swift in Sources */,
 				97AC6ED525E7524600FEC23E /* View+Extensions.swift in Sources */,
+				9761888625ECAC5E001D6363 /* PlainPing.swift in Sources */,
+				9761888725ECAC5E001D6363 /* SimplePingAdapter.swift in Sources */,
+				9761888825ECAC5E001D6363 /* SimplePing.m in Sources */,
 				97CE994625E750F700B9353A /* ListPCViewController.swift in Sources */,
 				97AC6EE125E7800400FEC23E /* CellPC.swift in Sources */,
 				97AC6EE625E7860E00FEC23E /* PC.swift in Sources */,
@@ -446,6 +471,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56487ZF829;
 				INFOPLIST_FILE = wow/Info.plist;
@@ -456,6 +482,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tungxuan.wow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "wow/General/Controller/Simple Ping/wow-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -466,6 +494,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56487ZF829;
 				INFOPLIST_FILE = wow/Info.plist;
@@ -476,6 +505,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tungxuan.wow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "wow/General/Controller/Simple Ping/wow-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

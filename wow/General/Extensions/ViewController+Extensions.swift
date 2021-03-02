@@ -154,7 +154,7 @@ extension UIWindow {
 // MARK: Keyboard Delegate
 extension UIViewController {
     func initObserverKeyboard() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideSelector(notification:)), name: UIWindow.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowSelector(notification:)), name: UIWindow.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideSelector(notification:)), name: UIWindow.keyboardWillHideNotification, object: nil)
     }
     
@@ -181,7 +181,7 @@ extension UIViewController {
         }
     }
     
-    func keyboardWillHide() {}
+    @objc func keyboardWillHide() {}
     
-    func keyboardWillShow(height: CGFloat) {}
+    @objc func keyboardWillShow(height: CGFloat) {}
 }

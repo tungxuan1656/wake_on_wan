@@ -12,8 +12,9 @@ class RegisterPCViewController: UIViewController {
 	@IBOutlet weak var labelTitle: UILabel!
 	@IBOutlet weak var textfieldName: UITextField!
 	@IBOutlet weak var textfieldMAC: UITextField!
-	@IBOutlet weak var textfieldIP: UITextField!
-	@IBOutlet weak var textfieldPort: UITextField!
+	@IBOutlet weak var textfieldAddressBroadcast: UITextField!
+	@IBOutlet weak var textfieldAddressRD: UITextField!
+	@IBOutlet weak var constraintBottomScrollView: NSLayoutConstraint!
 	
 	var pc: PC? = nil
 	
@@ -26,6 +27,11 @@ class RegisterPCViewController: UIViewController {
 	
 	init() {
 		super.init(nibName: "RegisterPCViewController", bundle: nil)
+		self.initObserverKeyboard()
+	}
+	
+	deinit {
+		self.removeObserverKeyboard()
 	}
 	
 	required init?(coder: NSCoder) {
@@ -48,8 +54,10 @@ class RegisterPCViewController: UIViewController {
 		if let pc = self.pc {
 			self.textfieldName.text = pc.name
 			self.textfieldMAC.text = pc.MAC
-			self.textfieldIP.text = pc.ip
-			self.textfieldPort.text = pc.port.description
+			self.textfieldAddressBroadcast.text = "\(pc.ip):\(pc.port)"
+			if pc.ipRD != "" {
+				self.textfieldAddressRD.text = "\(pc.ipRD):\(pc.portRD)"
+			}
 		}
 	}
 	
@@ -61,17 +69,17 @@ class RegisterPCViewController: UIViewController {
 	@IBAction func onClickButtonDone(_ sender: Any) {
 		let name = self.textfieldName.text?.trimmingCharacters(in: .whitespacesAndNewlines)
 		let mac = self.textfieldMAC.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-		let ip = self.textfieldIP.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-		let sPort = self.textfieldPort.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+		let addressBroadcast = self.textfieldAddressBroadcast.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+		let addressRD = self.textfieldAddressRD.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
 		
-		if name == nil || mac == nil || ip == nil || sPort == nil {
+		if name == nil || mac == nil || addressBroadcast == nil {
 			self.showAlertDialog(title: "Failed", message: "Lack of information")
 			return
 		}
 		
 		// check name
 		let n = Global.arrPCs.map { $0.name }
-		if n.contains(name!) {
+		if n.contains(name!) && name != self.pc?.name {
 			self.showAlertDialog(title: "Failed", message: "Name already exists")
 			return
 		}
@@ -82,44 +90,83 @@ class RegisterPCViewController: UIViewController {
 			return
 		}
 		
+		// broadcast address
+		let a = addressBroadcast?.split(separator: ":").map { String($0) }
+		if a?.count != 2 {
+			self.showAlertDialog(title: "Failed", message: "Broadcast address is incorrectly formatted or missing port")
+			return
+		}
+		let broadcastHost = a![0]
+		let broadcastPort = Int(a![1])
+		
 		// check ip or domain
-		if !ip!.isIpAddress() {
-			if !ip!.hasPrefix("http") && !ip!.hasPrefix("https") {
-				self.showAlertDialog(title: "Failed", message: "URL is incorrectly formatted. Must contains http or https")
-				return
+		if !broadcastHost.isIpAddress() {
+			var a = broadcastHost
+			if !broadcastHost.hasPrefix("http") && !broadcastHost.hasPrefix("https") {
+				a = "http://\(broadcastHost)"
 			}
-			if !ip!.isHost() {
-				self.showAlertDialog(title: "Failed", message: "IP address is incorrectly formatted or URL is wrong")
+			if !a.isHost() {
+				self.showAlertDialog(title: "Failed", message: "Broadcast address is incorrectly formatted or missing port")
 				return
 			}
 		}
 
-		
 		// check port
-		let port = Int(sPort!)
-		if port == nil || port! <= 0 {
-			self.showAlertDialog(title: "Failed", message: "Port is incorrectly formatted")
+		if broadcastPort == nil || broadcastPort! <= 0 {
+			self.showAlertDialog(title: "Failed", message: "Broadcast port is incorrectly formatted")
 			return
 		}
 		
-		let newPc = PC(name: name!, MAC: mac!, ip: ip!, port: Int(sPort!)!)
+		var rdHost = ""
+		var rdPort: Int? = 0
+		
+		if addressRD != "" {
+			// RD address
+			let a = addressRD.split(separator: ":").map { String($0) }
+			if a.count != 2 {
+				self.showAlertDialog(title: "Failed", message: "Remote desktop address is incorrectly formatted or missing port")
+				return
+			}
+			rdHost = a[0]
+			rdPort = Int(a[1])
+			
+			// check ip or domain
+			if !rdHost.isIpAddress() {
+				var a = rdHost
+				if !rdHost.hasPrefix("http") && !rdHost.hasPrefix("https") {
+					a = "http://\(broadcastHost)"
+				}
+				if !a.isHost() {
+					self.showAlertDialog(title: "Failed", message: "Remote desktop address is incorrectly formatted or missing port")
+					return
+				}
+			}
+
+			// check port
+			if rdPort == nil || rdPort! <= 0 {
+				self.showAlertDialog(title: "Failed", message: "Remote desktop port is incorrectly formatted")
+				return
+			}
+		}
+		
+		let newPC = PC(name: name!, MAC: mac!, ip: broadcastHost, port: broadcastPort!, ipRD: rdHost, portRD: rdPort!)
 		if let pc = self.pc {
 			if pc.name == Global.selectedPC?.name {
-				Global.selectedPC = newPc
+				Global.selectedPC = newPC
 				NotificationCenter.default.post(name: .SelectedNewPC, object: nil)
 			}
 			
 			for (i, p) in Global.arrPCs.enumerated() {
 				if p.name == pc.name {
 					Global.arrPCs.remove(at: i)
-					Global.arrPCs.insert(newPc, at: i)
+					Global.arrPCs.insert(newPC, at: i)
 					NotificationCenter.default.post(name: .EditedPC, object: nil)
 					break
 				}
 			}
 		}
 		else {
-			Global.arrPCs.append(newPc)
+			Global.arrPCs.append(newPC)
 			NotificationCenter.default.post(name: .AddNewPC, object: nil)
 		}
 		
@@ -169,9 +216,9 @@ extension RegisterPCViewController: UITextFieldDelegate {
 		case textfieldName:
 			self.textfieldMAC.becomeFirstResponder()
 		case textfieldMAC:
-			self.textfieldIP.becomeFirstResponder()
-		case textfieldIP:
-			self.textfieldPort.becomeFirstResponder()
+			self.textfieldAddressBroadcast.becomeFirstResponder()
+		case textfieldAddressBroadcast:
+			self.textfieldAddressRD.becomeFirstResponder()
 		default:
 			self.view.endEditing(true)
 		}
@@ -185,5 +232,15 @@ extension RegisterPCViewController: UITextFieldDelegate {
 	
 	func textFieldDidEndEditing(_ textField: UITextField) {
 		textField.remove(border: .bottom)
+	}
+}
+
+extension RegisterPCViewController {
+	override func keyboardWillHide() {
+		self.constraintBottomScrollView.constant = 0
+	}
+	
+	override func keyboardWillShow(height: CGFloat) {
+		self.constraintBottomScrollView.constant = height
 	}
 }
