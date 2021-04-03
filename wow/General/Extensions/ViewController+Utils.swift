@@ -21,33 +21,55 @@ extension UIViewController {
         }
     }
     
-    func showAlertDialog(title: String?, message: String?, completion: @escaping (Bool) -> ()) {
+	func showAlertDialog(title: String?, message: String?, completion: (() -> Void)?) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("Close", comment: ""), style: .cancel, handler: {
-            (action) in
-                completion(true)
+            (_) in
+				if let c = completion {
+					c()
+				}
             }))
             self.present(alert, animated: true, completion: nil)
         }
     }
     
-    func showAlertDialog(title: String?, message: String?, negativeButton: String?, didClickNegativeButton: @escaping (Bool) -> (), positiveButton: String?, didClickPositiveButton: @escaping (Bool) -> ()) {
+    func showAlertDialog(title: String?, message: String?, negativeButton: String, didClickNegativeButton: @escaping () -> (), positiveButton: String, didClickPositiveButton: @escaping () -> ()) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: negativeButton, style: .cancel, handler: {
             (action) in
-                didClickNegativeButton(true)
+                didClickNegativeButton()
             }))
-            if positiveButton != nil {
-                alert.addAction(UIAlertAction(title: positiveButton, style: .default, handler: {
-                (action) in
-                    didClickPositiveButton(true)
-                }))
-            }
+			alert.addAction(UIAlertAction(title: positiveButton, style: .default, handler: {
+			(action) in
+				didClickPositiveButton()
+			}))
             self.present(alert, animated: true, completion: nil)
         }
     }
+	
+	func showAlertDialog(title: String?, message: String?, positiveButton: String, didClickPositiveButton: @escaping () -> ()) {
+		DispatchQueue.main.async {
+			let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: positiveButton, style: .default, handler: {
+			(action) in
+				didClickPositiveButton()
+			}))
+			self.present(alert, animated: true, completion: nil)
+		}
+	}
+	
+	func showAlertDialog(title: String?, message: String?, negativeButton: String, didClickNegativeButton: @escaping () -> ()) {
+		DispatchQueue.main.async {
+			let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: negativeButton, style: .cancel, handler: {
+			(action) in
+				didClickNegativeButton()
+			}))
+			self.present(alert, animated: true, completion: nil)
+		}
+	}
     
     func getPreviousNavVC() -> UIViewController? {
         if let navVC = self.navigationController {

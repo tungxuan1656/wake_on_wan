@@ -34,10 +34,12 @@ class HomeViewController: UIViewController {
 	init() {
 		super.init(nibName: "HomeViewController", bundle: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: .SelectedNewPC, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: .RemoveSelectedPC, object: nil)
 	}
 	
 	deinit {
 		NotificationCenter.default.removeObserver(self, name: .SelectedNewPC, object: nil)
+		NotificationCenter.default.removeObserver(self, name: .RemoveSelectedPC, object: nil)
 	}
 	
 	required init?(coder: NSCoder) {

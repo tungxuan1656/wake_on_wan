@@ -27,6 +27,7 @@ class Global {
 	}
 	
 	@objc func updateData() {
+		print("Update DATA")
 		Global.saveArrayPC()
 	}
 	

@@ -17,6 +17,9 @@ class CellPC: UITableViewCell {
 	@IBOutlet weak var labelMACAddress: UILabel!
 	@IBOutlet weak var labelIPAddress: UILabel!
 	@IBOutlet weak var labelPortAddress: UILabel!
+	@IBOutlet weak var labelIPRDAddress: UILabel!
+	@IBOutlet weak var labelPortRDAddress: UILabel!
+	@IBOutlet weak var stackViewRD: UIStackView!
 	
 	var indexPC = -1
 	var delegate: CellPCDelegate? = nil

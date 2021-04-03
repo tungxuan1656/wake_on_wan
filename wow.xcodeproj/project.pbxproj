@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		9716425725E8FC85006C2685 /* tutorial.html in Resources */ = {isa = PBXBuildFile; fileRef = 9716425625E8FC85006C2685 /* tutorial.html */; };
-		9761888625ECAC5E001D6363 /* PlainPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9761888225ECAC5E001D6363 /* PlainPing.swift */; };
-		9761888725ECAC5E001D6363 /* SimplePingAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9761888325ECAC5E001D6363 /* SimplePingAdapter.swift */; };
-		9761888825ECAC5E001D6363 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = 9761888525ECAC5E001D6363 /* SimplePing.m */; };
+		9732BC9926099DE90012EEB5 /* MBProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9732BC9826099DE90012EEB5 /* MBProgressHUD.swift */; };
+		9732BC9C26099E180012EEB5 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9732BC9B26099E180012EEB5 /* ProgressView.swift */; };
+		9732BC9F2609C2F00012EEB5 /* PhotosHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9732BC9E2609C2F00012EEB5 /* PhotosHelper.swift */; };
+		9732BCA22609C6AC0012EEB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9732BCA12609C6AC0012EEB5 /* Logger.swift */; };
+		9732BCAB2609C6E00012EEB5 /* MOLHLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9732BCA62609C6E00012EEB5 /* MOLHLanguage.swift */; };
+		9732BCAC2609C6E00012EEB5 /* MOLHFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9732BCA72609C6E00012EEB5 /* MOLHFont.swift */; };
+		9732BCAD2609C6E00012EEB5 /* MOLHSizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9732BCA82609C6E00012EEB5 /* MOLHSizable.swift */; };
+		9732BCAE2609C6E00012EEB5 /* MOLH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9732BCA92609C6E00012EEB5 /* MOLH.swift */; };
+		9732BCAF2609C6E00012EEB5 /* MOLHFontLocalizableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9732BCAA2609C6E00012EEB5 /* MOLHFontLocalizableViews.swift */; };
+		9732BCB82609C9360012EEB5 /* DataType+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9732BCB72609C9360012EEB5 /* DataType+Helper.swift */; };
 		97AC6ED525E7524600FEC23E /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC6ED425E7524600FEC23E /* View+Extensions.swift */; };
-		97AC6ED925E7525D00FEC23E /* DataType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC6ED725E7525D00FEC23E /* DataType+Extensions.swift */; };
-		97AC6EDA25E7525D00FEC23E /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC6ED825E7525D00FEC23E /* ViewController+Extensions.swift */; };
+		97AC6EDA25E7525D00FEC23E /* ViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC6ED825E7525D00FEC23E /* ViewController+Utils.swift */; };
 		97AC6EDD25E7553800FEC23E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC6EDC25E7553800FEC23E /* ViewController.swift */; };
 		97AC6EE125E7800400FEC23E /* CellPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC6EDF25E7800400FEC23E /* CellPC.swift */; };
 		97AC6EE225E7800400FEC23E /* CellPC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97AC6EE025E7800400FEC23E /* CellPC.xib */; };
@@ -38,14 +44,19 @@
 
 /* Begin PBXFileReference section */
 		9716425625E8FC85006C2685 /* tutorial.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tutorial.html; sourceTree = SOURCE_ROOT; };
+		9732BC9826099DE90012EEB5 /* MBProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBProgressHUD.swift; sourceTree = "<group>"; };
+		9732BC9B26099E180012EEB5 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		9732BC9E2609C2F00012EEB5 /* PhotosHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosHelper.swift; sourceTree = "<group>"; };
+		9732BCA12609C6AC0012EEB5 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		9732BCA62609C6E00012EEB5 /* MOLHLanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOLHLanguage.swift; sourceTree = "<group>"; };
+		9732BCA72609C6E00012EEB5 /* MOLHFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOLHFont.swift; sourceTree = "<group>"; };
+		9732BCA82609C6E00012EEB5 /* MOLHSizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOLHSizable.swift; sourceTree = "<group>"; };
+		9732BCA92609C6E00012EEB5 /* MOLH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOLH.swift; sourceTree = "<group>"; };
+		9732BCAA2609C6E00012EEB5 /* MOLHFontLocalizableViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOLHFontLocalizableViews.swift; sourceTree = "<group>"; };
+		9732BCB72609C9360012EEB5 /* DataType+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataType+Helper.swift"; sourceTree = "<group>"; };
 		9761888125ECAC5D001D6363 /* wow-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "wow-Bridging-Header.h"; sourceTree = "<group>"; };
-		9761888225ECAC5E001D6363 /* PlainPing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainPing.swift; sourceTree = SOURCE_ROOT; };
-		9761888325ECAC5E001D6363 /* SimplePingAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePingAdapter.swift; sourceTree = SOURCE_ROOT; };
-		9761888425ECAC5E001D6363 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = SOURCE_ROOT; };
-		9761888525ECAC5E001D6363 /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = SOURCE_ROOT; };
 		97AC6ED425E7524600FEC23E /* View+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
-		97AC6ED725E7525D00FEC23E /* DataType+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataType+Extensions.swift"; sourceTree = "<group>"; };
-		97AC6ED825E7525D00FEC23E /* ViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
+		97AC6ED825E7525D00FEC23E /* ViewController+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Utils.swift"; sourceTree = "<group>"; };
 		97AC6EDC25E7553800FEC23E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		97AC6EDF25E7800400FEC23E /* CellPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellPC.swift; sourceTree = "<group>"; };
 		97AC6EE025E7800400FEC23E /* CellPC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellPC.xib; sourceTree = "<group>"; };
@@ -81,16 +92,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9761888025ECAC3A001D6363 /* Simple Ping */ = {
+		9732BC9726099DD90012EEB5 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				9761888225ECAC5E001D6363 /* PlainPing.swift */,
-				9761888425ECAC5E001D6363 /* SimplePing.h */,
-				9761888525ECAC5E001D6363 /* SimplePing.m */,
-				9761888325ECAC5E001D6363 /* SimplePingAdapter.swift */,
-				9761888125ECAC5D001D6363 /* wow-Bridging-Header.h */,
+				9732BC9826099DE90012EEB5 /* MBProgressHUD.swift */,
+				9732BC9B26099E180012EEB5 /* ProgressView.swift */,
 			);
-			path = "Simple Ping";
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		9732BCA52609C6D80012EEB5 /* MOLH */ = {
+			isa = PBXGroup;
+			children = (
+				9732BCA92609C6E00012EEB5 /* MOLH.swift */,
+				9732BCA72609C6E00012EEB5 /* MOLHFont.swift */,
+				9732BCAA2609C6E00012EEB5 /* MOLHFontLocalizableViews.swift */,
+				9732BCA62609C6E00012EEB5 /* MOLHLanguage.swift */,
+				9732BCA82609C6E00012EEB5 /* MOLHSizable.swift */,
+			);
+			path = MOLH;
 			sourceTree = "<group>";
 		};
 		97AC6EE425E7860000FEC23E /* Model */ = {
@@ -124,6 +144,7 @@
 				97CE991F25E74D9F00B9353A /* SceneDelegate.swift */,
 				97CE992625E74DA000B9353A /* Assets.xcassets */,
 				97CE992B25E74DA000B9353A /* Info.plist */,
+				9761888125ECAC5D001D6363 /* wow-Bridging-Header.h */,
 				97AC6EE425E7860000FEC23E /* Model */,
 				97CE993525E74ED900B9353A /* View */,
 				97CE993725E7503700B9353A /* General */,
@@ -157,7 +178,6 @@
 		97CE993625E74EDE00B9353A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9761888025ECAC3A001D6363 /* Simple Ping */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,9 +196,13 @@
 		97CE993825E7504300B9353A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9732BCA52609C6D80012EEB5 /* MOLH */,
+				9732BC9726099DD90012EEB5 /* MBProgressHUD */,
 				97AC6ED425E7524600FEC23E /* View+Extensions.swift */,
-				97AC6ED725E7525D00FEC23E /* DataType+Extensions.swift */,
-				97AC6ED825E7525D00FEC23E /* ViewController+Extensions.swift */,
+				9732BCA12609C6AC0012EEB5 /* Logger.swift */,
+				97AC6ED825E7525D00FEC23E /* ViewController+Utils.swift */,
+				9732BC9E2609C2F00012EEB5 /* PhotosHelper.swift */,
+				9732BCB72609C9360012EEB5 /* DataType+Helper.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -312,19 +336,25 @@
 				97CE995025E7513200B9353A /* TutorialWOWViewController.swift in Sources */,
 				97CE994125E750E500B9353A /* RegisterPCViewController.swift in Sources */,
 				97AC6EEA25E79DA000FEC23E /* Config.swift in Sources */,
+				9732BCAC2609C6E00012EEB5 /* MOLHFont.swift in Sources */,
 				97CE994B25E7511B00B9353A /* AboutViewController.swift in Sources */,
 				97AC6EDD25E7553800FEC23E /* ViewController.swift in Sources */,
 				97CE992025E74D9F00B9353A /* SceneDelegate.swift in Sources */,
+				9732BC9F2609C2F00012EEB5 /* PhotosHelper.swift in Sources */,
 				97CE993B25E7506600B9353A /* HomeViewController.swift in Sources */,
-				97AC6EDA25E7525D00FEC23E /* ViewController+Extensions.swift in Sources */,
+				97AC6EDA25E7525D00FEC23E /* ViewController+Utils.swift in Sources */,
 				97AC6ED525E7524600FEC23E /* View+Extensions.swift in Sources */,
-				9761888625ECAC5E001D6363 /* PlainPing.swift in Sources */,
-				9761888725ECAC5E001D6363 /* SimplePingAdapter.swift in Sources */,
-				9761888825ECAC5E001D6363 /* SimplePing.m in Sources */,
+				9732BCAF2609C6E00012EEB5 /* MOLHFontLocalizableViews.swift in Sources */,
+				9732BCAD2609C6E00012EEB5 /* MOLHSizable.swift in Sources */,
+				9732BC9926099DE90012EEB5 /* MBProgressHUD.swift in Sources */,
+				9732BCB82609C9360012EEB5 /* DataType+Helper.swift in Sources */,
+				9732BCAB2609C6E00012EEB5 /* MOLHLanguage.swift in Sources */,
 				97CE994625E750F700B9353A /* ListPCViewController.swift in Sources */,
+				9732BCA22609C6AC0012EEB5 /* Logger.swift in Sources */,
+				9732BCAE2609C6E00012EEB5 /* MOLH.swift in Sources */,
 				97AC6EE125E7800400FEC23E /* CellPC.swift in Sources */,
+				9732BC9C26099E180012EEB5 /* ProgressView.swift in Sources */,
 				97AC6EE625E7860E00FEC23E /* PC.swift in Sources */,
-				97AC6ED925E7525D00FEC23E /* DataType+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,8 +502,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 56487ZF829;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = T9PQL5SS3D;
 				INFOPLIST_FILE = wow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -482,7 +513,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tungxuan.wow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "wow/General/Controller/Simple Ping/wow-Bridging-Header.h";
+				PROVISIONING_PROFILE_SPECIFIER = "[Dev] MDC Wildcard Profile";
+				SWIFT_OBJC_BRIDGING_HEADER = "wow/wow-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -495,8 +527,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 56487ZF829;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = T9PQL5SS3D;
 				INFOPLIST_FILE = wow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -505,7 +538,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tungxuan.wow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "wow/General/Controller/Simple Ping/wow-Bridging-Header.h";
+				PROVISIONING_PROFILE_SPECIFIER = "[Dev] MDC Wildcard Profile";
+				SWIFT_OBJC_BRIDGING_HEADER = "wow/wow-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

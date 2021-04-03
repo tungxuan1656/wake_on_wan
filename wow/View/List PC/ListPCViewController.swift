@@ -63,6 +63,21 @@ class ListPCViewController: UIViewController {
 		self.navigationController?.pushViewController(register, animated: true)
 	}
 	
+	// MARK: - Utils
+	func checkPCisOnline(pc: PC) {
+		MBProgressHUD.show(added: self.tableViewListPC)
+		DispatchQueue.global().async {
+			let isOnline = PC.isPortOpen(host: pc.ipRD, port: pc.portRD)
+			MBProgressHUD.showDone(for: self.tableViewListPC, hide: 1, animated: true) { [weak self] in
+				if isOnline {
+					self?.showAlertDialog(title: "NOTIFICATION", message: "PC is online!")
+				}
+				else {
+					self?.showAlertDialog(title: "NOTIFICATION", message: "PC is offline!")
+				}
+			}
+		}
+	}
 }
 
 extension ListPCViewController: UITableViewDelegate, UITableViewDataSource {
@@ -78,6 +93,12 @@ extension ListPCViewController: UITableViewDelegate, UITableViewDataSource {
 		cell.labelIPAddress.text = pc.ip
 		cell.labelMACAddress.text = pc.MAC
 		cell.labelPortAddress.text = pc.port.description
+		if pc.ipRD != "" {
+			cell.stackViewRD.isHidden = false
+			cell.labelIPRDAddress.text = pc.ipRD
+			cell.labelPortRDAddress.text = pc.portRD.description
+		}
+		else { cell.stackViewRD.isHidden = true }
 		cell.indexPC = indexPath.row
 		cell.delegate = self
 		
@@ -86,9 +107,32 @@ extension ListPCViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
-		Global.selectedPC = Global.arrPCs[indexPath.row]
-		NotificationCenter.default.post(name: .SelectedNewPC, object: Global.arrPCs[indexPath.row])
-		self.onClickButtonBack(self)
+		
+		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		alert.addAction(.init(title: "Choose", style: .default, handler: { (_) in
+			Global.selectedPC = Global.arrPCs[indexPath.row]
+			NotificationCenter.default.post(name: .SelectedNewPC, object: Global.arrPCs[indexPath.row])
+			self.onClickButtonBack(self)
+		}))
+		alert.addAction(.init(title: "Edit", style: .default, handler: { (_) in
+			let register = RegisterPCViewController()
+			register.pc = Global.arrPCs[indexPath.row]
+			self.navigationController?.pushViewController(register, animated: true)
+		}))
+		alert.addAction(.init(title: "Delete", style: .default, handler: { (_) in
+			if Global.arrPCs[indexPath.row].name == Global.selectedPC?.name {
+				Global.selectedPC = nil
+				NotificationCenter.default.post(name: .RemoveSelectedPC, object: nil)
+			}
+			Global.arrPCs.remove(at: indexPath.row)
+			NotificationCenter.default.post(name: .RemovePC, object: nil)
+			self.tableViewListPC.deleteRows(at: [indexPath], with: .left)
+		}))
+		alert.addAction(.init(title: "Check PC Online?", style: .default, handler: { (_) in
+			self.checkPCisOnline(pc: Global.arrPCs[indexPath.row])
+		}))
+		alert.addAction(.init(title: "Cancel", style: .cancel, handler: nil))
+		self.present(alert, animated: true, completion: nil)
 	}
 	
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -101,7 +145,10 @@ extension ListPCViewController: UITableViewDelegate, UITableViewDataSource {
 			Global.arrPCs.remove(at: indexPath.row)
 			tableViewListPC.deleteRows(at: [indexPath], with: .fade)
 		}
-
+	}
+	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 80
 	}
 }
 
