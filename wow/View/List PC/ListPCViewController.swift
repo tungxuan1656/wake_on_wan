@@ -107,8 +107,13 @@ extension ListPCViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
+        
+		var alertStyle = UIAlertController.Style.actionSheet
+		if (UIDevice.current.userInterfaceIdiom == .pad) {
+			alertStyle = UIAlertController.Style.alert
+		}
 		
-		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		let alert = UIAlertController(title: nil, message: nil, preferredStyle: alertStyle)
 		alert.addAction(.init(title: "Choose", style: .default, handler: { (_) in
 			Global.selectedPC = Global.arrPCs[indexPath.row]
 			NotificationCenter.default.post(name: .SelectedNewPC, object: Global.arrPCs[indexPath.row])

@@ -507,14 +507,14 @@
 				CODE_SIGN_ENTITLEMENTS = wow/wow.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 56487ZF829;
+				DEVELOPMENT_TEAM = B52J6U3Y4P;
 				INFOPLIST_FILE = wow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tungxuan.wow;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tungxuan.wow2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = YES;
@@ -534,14 +534,14 @@
 				CODE_SIGN_ENTITLEMENTS = wow/wow.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 56487ZF829;
+				DEVELOPMENT_TEAM = B52J6U3Y4P;
 				INFOPLIST_FILE = wow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tungxuan.wow;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tungxuan.wow2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = YES;

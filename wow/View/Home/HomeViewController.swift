@@ -174,6 +174,8 @@ class HomeViewController: UIViewController {
 		target.sin_addr.s_addr = inet_addr(ip)
 		
 		let port = UInt16(pc.port)
+        
+        print(pc, ip)
 		
 		let isLittleEndian = Int(OSHostByteOrder()) == OSLittleEndian
 		target.sin_port = isLittleEndian ? _OSSwapInt16(port) : port
@@ -190,7 +192,7 @@ class HomeViewController: UIViewController {
 		
 		// Set socket options
 		var broadcast = 1
-		if setsockopt(sock, SOL_SOCKET, SO_BROADCAST, &broadcast, intLen) == -1 {
+		if setsockopt(sock, SOL_SOCKET, SO_BROADCAST, &broadcast, intLen) != 0 {
 			close(sock)
 			let err = String(utf8String: strerror(errno)) ?? ""
 			return WakeError.SetSocketOptionsFailed(reason: err)
@@ -198,7 +200,11 @@ class HomeViewController: UIViewController {
 		
 		// Send magic packet
 		var targetCast = unsafeBitCast(target, to: sockaddr.self)
-		if sendto(sock, packet, packet.count, 0, &targetCast, sockaddrLen) != packet.count {
+        let outputSended = sendto(sock, packet, packet.count, 0, &targetCast, sockaddrLen)
+        
+        print("Sended", outputSended)
+        
+		if outputSended != packet.count {
 			close(sock)
 			let err = String(utf8String: strerror(errno)) ?? ""
 			return WakeError.SendMagicPacketFailed(reason: err)
